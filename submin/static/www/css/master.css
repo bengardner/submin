@@ -18,8 +18,17 @@ body {
 	overflow: auto;
 }
 
-ul { 
-	padding-left: 0em; 
+i.sa {
+	margin-right: 0.5em;
+}
+div.permdiv {
+	width: 2em;
+	float: left;
+	text-align: center;
+}
+
+ul {
+	padding-left: 0em;
 	margin: 0;
 }
 li {
@@ -150,6 +159,9 @@ div.c_icon.minus {
 div.c_icon.empty {
 	cursor: auto;
 	background-position: 0px -49px;
+}
+i.remover {
+	color: red;
 }
 
 /* ==== Log popup ==== */

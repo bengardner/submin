@@ -18,8 +18,11 @@ img.repostree-folder {
 	vertical-align: bottom;
 }
 
-span.repostree-noncollapsable {
-	padding-left: 1.5em;
+i.repostree-folder {
+	height: 1em;
+	width: 1em;
+	padding-right: 0.25em;
+	color: rgb(113,145,173);
 }
 
 #repostree li span {
@@ -80,10 +83,11 @@ div#permissions-editor select.adder {
 	margin-bottom: 1.5em;
 }
 
-div#permissions-editor div.remover {
+div#permissions-editor i.remover {
 	float: right;
 	margin-right: 0.5em;
 	margin-left: 2.0em;
+	margin-top: 0.25em;
 	cursor: pointer;
 }
 div#permissions-editor img.adder {

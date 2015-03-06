@@ -87,9 +87,9 @@ function reloadX(response, X, Xplural, Xcapital) {
 			span.setAttribute("name", name);
 			if (vcs)
 				span.setAttribute("vcs", vcs);
-			var minus = $c("div");
+			var minus = $c("i");
+			addClassName(minus, "fa fa-times-circle fa-lg");
 			addClassName(minus, "remover");
-			addClassName(minus, "c_icon");
 			addClassName(minus, "minus");
 			span.appendChild(minus);
 			span.setAttribute("title", "delete " + name)

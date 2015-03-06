@@ -390,9 +390,8 @@ ReposNode.prototype.createChild = function(dir, has_subdirs)
 	li.id = new_id;
 	li.className = this.prefix;
 
-	var folder_img = document.createElement('img');
-	folder_img.src = base_url + 'img/repostree-folder.png';
-	folder_img.className = "repostree-folder";
+	var folder_img = document.createElement('i');
+	folder_img.className = "fa fa-folder repostree-folder";
 
 	var fspan = document.createElement('span');
 	fspan.appendChild(folder_img);
