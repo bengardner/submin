@@ -34,8 +34,8 @@ function Selector(options) {
 
 /* Creates the add/remove button for each item */
 Selector.prototype.makeButton = function(className) {
-	var minus = $c("div", {"className": className});
-	addClassName(minus, "c_icon");
+	var minus = $c("i", {"className": className});
+	addClassName(minus, "fa fa-times-circle fa-lg");
 	addClassName(minus, "minus");
 	return minus;
 }
@@ -127,14 +127,14 @@ Selector.prototype.setupAddedItem = function(added) {
 			var permissions = added['permissions'];
 			if (permissions == "")
 				permissions = "none";
-			var icons = {"user": "UserIconScaled.png",
-				"group": "GroupIconScaled.png"}
-			var img = $c("img",
-					{"src": base_url + "img/" + icons[added["type"]]});
-			var displayname = added["name"];
+			var icons = { "user": "fa fa-user fa-lg sa",
+				          "group": "fa fa-group fa-lg sa" };
+			var img = $c("i", {"className": icons[added["type"]]});
 			var span = $c("span");
-			span.appendChild(img);
-			span.appendChild(document.createTextNode(displayname));
+			var div = $c("div", { "className": "permdiv" });
+			div.appendChild(img);
+			span.appendChild(div);
+			span.appendChild(document.createTextNode(added["name"]));
 			item.appendChild(span);
 		} else {
 			item.name = added;
