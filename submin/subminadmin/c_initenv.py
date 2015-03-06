@@ -21,6 +21,7 @@ Options:
     trac_url=<url>           - url to trac (default: trac)
     submin_url=<url>         - url to submin (default: submin)
     svn_url=<url>            - url to subversion repositories (default: svn)
+    viewvc_url=<url>         - url to ViewVC (default: viewvc)
 
 Notes:
     The *_url arguments are all relative to http_base, unless they begin with
@@ -44,6 +45,7 @@ Notes:
 			'trac_url': Path('trac'),
 			'submin_url': Path('submin'),
 			'svn_url': Path('svn'),
+			'viewvc_url': Path('viewvc'),
 			'create_user': 'yes',
 			'enable_features': 'svn, git, apache, nginx',
 			'smtp_from': 'Submin <root@%s>' % socket.getfqdn(),
@@ -176,6 +178,7 @@ default might work in some places, but not all.
 		default_options = {
 			'base_url_submin': self._get_url('submin_url'),
 			'base_url_svn': self._get_url('svn_url'),
+			'base_url_viewvc': self._get_url('viewvc_url'),
 			'base_url_trac': self._get_url('trac_url'),
 			'http_vhost': self.init_vars['http_vhost'],
 			'auth_type': 'sql',

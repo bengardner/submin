@@ -140,6 +140,7 @@ Usage:
 			# trailing slash.
 			'submin_base_url': self.urlpath(options.value('base_url_submin')),
 			'svn_base_url': self.urlpath(options.value('base_url_svn')),
+			'viewvc_base_url': self.urlpath(options.value('base_url_viewvc')),
 			'trac_base_url': self.urlpath(options.value('base_url_trac')),
 			'svn_dir': options.env_path('svn_dir'),
 			'trac_dir': options.env_path('trac_dir'),

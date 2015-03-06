@@ -3,6 +3,7 @@
 	<div id="info" class="settings">
 		<ul>
 			<li><label>[val repository.vcs_display_name] URL</label><span>[test:vcs_url <a class="external" href="[val vcs_url]">[val vcs_url]</a>][else <div class="comment">[val vcs_url_error]</div>]</span>
+			[test:viewvc_url <a class="external" href="[val viewvc_url]">ViewVC</a>]
 			</li>
 			[test:trac_msg <li><label>Trac Environment</label><span>[val trac_msg]<span></li>]
 			[test:trac_exists <li><label>Trac URL</label><span>

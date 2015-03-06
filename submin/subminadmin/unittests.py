@@ -124,7 +124,8 @@ class SubminAdminConfig(unittest.TestCase):
 				(u'base_url_git', u'/git'), (u'base_url_submin', u'/submin'),
 				(u'http_vhost', u'darim'), (u'enabled_trac', u'no'),
 				(u'trac_dir', u'trac'), (u'vcs_plugins', u'git,svn'),
-				(u'base_url_svn', u'/svn')]
+				(u'base_url_svn', u'/svn'),
+				(u'base_url_viewvc', u'/viewvc')]
 		unpredictable_keys = [u'session_salt']
 		c = c_config.c_config(self.sa, ['defaults'])
 		c.run()

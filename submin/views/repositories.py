@@ -74,6 +74,12 @@ class Repositories(View):
 			vcs_url = ""
 			templatevars['vcs_url_error'] = str(e)
 
+		viewvc_url = None
+		viewvc_base_url = options.url_path('base_url_viewvc')
+		if viewvc_base_url and vcs_type == 'svn':
+			viewvc_url = str(viewvc_base_url + repos.name)
+
+		templatevars['viewvc_url'] = viewvc_url
 		templatevars['vcs_url'] = vcs_url
 		templatevars['repository'] = repos
 		templatevars['vcs_type'] = vcs_type
