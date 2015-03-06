@@ -390,6 +390,15 @@ ReposNode.prototype.createChild = function(dir, has_subdirs)
 	li.id = new_id;
 	li.className = this.prefix;
 
+	var folder_img = document.createElement('img');
+	folder_img.src = base_url + 'img/repostree-folder.png';
+	folder_img.className = "repostree-folder";
+
+	var fspan = document.createElement('span');
+	fspan.appendChild(folder_img);
+	fspan.appendChild(document.createTextNode(dir));
+	fspan.onclick = function () { reloadPermissions(this); };
+
 	if (newnode.has_subdirs) {
 		var div = document.createElement('div');
 		addClassName(div, prefix);
@@ -405,29 +414,22 @@ ReposNode.prototype.createChild = function(dir, has_subdirs)
 		addClassName(ul, prefix);
 		addClassName(ul, 'c_object');
 
-		var folder_img = document.createElement('img');
-		folder_img.src = base_url + 'img/repostree-folder.png';
-		folder_img.className = "repostree-folder";
-
-		var span2 = document.createElement('span');
-		span2.appendChild(folder_img);
-		span2.appendChild(document.createTextNode(dir));
-		span2.onclick = function () { reloadPermissions(this); };
-
 		li.appendChild(span);
-		li.appendChild(span2);
+		li.appendChild(fspan);
 		li.appendChild(ul);
 	} else {
-		var folder_img = document.createElement('img');
-		folder_img.src = base_url + 'img/repostree-folder.png';
-		folder_img.className = "repostree-folder";
+		fspan.className = 'repostree';
+
+		var div = document.createElement('div');
+		addClassName(div, 'c_icon');
+		addClassName(div, 'empty');
 
 		var span = document.createElement('span');
-		span.className = 'repostree-noncollapsable';
-		span.appendChild(folder_img);
-		span.appendChild(document.createTextNode(dir));
-		span.onclick = function () { reloadPermissions(this); };
+		addClassName(span, 'c_trigger');
+		span.appendChild(div);
+
 		li.appendChild(span);
+		li.appendChild(fspan);
 	}
 
 	// attach new HTML to existing HTML
