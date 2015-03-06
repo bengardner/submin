@@ -157,12 +157,15 @@ Selector.prototype.setupAddedItem = function(added) {
 				var _type = added["type"];
 				var _perm = added["permissions"];
 
+				remover.setAttribute("title", "remove rule for " + _name);
+
 				item.appendChild(this.permissionsSelect(_name, _type, _perm));
 				remover.onclick = function() {
 					_this.removerOnClick(_name, _type);
 				};
 			} else {
 				remover.onclick = function() { _this.removerOnClick(_name); };
+				remover.setAttribute("title", "remove " + _name);
 			}
 
 		}
