@@ -147,6 +147,10 @@ div.c_icon.minus {
 	margin: 0px;
 	background-position: 0px -36px;
 }
+div.c_icon.empty {
+	cursor: auto;
+	background-position: 0px -49px;
+}
 
 /* ==== Log popup ==== */
 #log {
