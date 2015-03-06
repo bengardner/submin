@@ -158,7 +158,7 @@ function deleteObject()
 	switch (type) {
 		case "users":        cmd = "removeUser"; break;
 		case "groups":       cmd = "removeGroup"; break;
-		case "repositories": cmd = "removeRepository"; break; 
+		case "repositories": cmd = "removeRepository"; break;
 	}
 	delete_object = FindResponse(response, cmd);
 	LogResponse(response);

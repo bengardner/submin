@@ -42,7 +42,7 @@ function initUsers() {
 		else
 			addable[addable.length] = user.getAttribute("name");
 	}
-	
+
 	return {"added": added, "addable": addable};
 }
 

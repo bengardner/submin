@@ -194,7 +194,7 @@ default might work in some places, but not all.
 
 		# add a user
 		from submin.models import user
-		
+
 		if self.init_vars['create_user'] == "yes":
 			# add an admin user
 			u = user.add('admin', self.email, send_mail=False)

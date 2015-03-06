@@ -12,7 +12,7 @@ Git support working correctly: [val diag.git_all_label]
      submin2-admin [val subminenv] git init
 
 ]
-[@test:diag.enabled_git 
+[@test:diag.enabled_git
  * Git dir set in config: [val diag.git_dir_set_label]
 [@test:!diag.git_dir_set
     To set the git_dir, run the following command:

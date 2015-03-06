@@ -144,7 +144,7 @@ function repostree_getpaths()
 
 	// log in case there is a problem
 	LogResponse(response);
-	
+
 	permissionspaths = FindResponse(response, 'getPermissionPaths');
 
 	// first empty array
@@ -168,9 +168,9 @@ function getsubdirsCB(response, reposnode)
 	// log in case there is a problem
 	LogResponse(response);
 	var subdirs = FindResponse(response, 'getSubdirs');
-	
+
 	reposnode.removeChilds(reposnode.path);
-	
+
 	var dirs = subdirs.xml.getElementsByTagName('dir');
 	var dirs_length = dirs.length;
 	for (var idx = 0; idx < dirs_length; ++idx) {
@@ -461,7 +461,7 @@ function toggle_commit_emails() {
 	var id = document.getElementById('commit_emails');
 	if (!id)
 		return;
-	
+
 	var enable = "false";
 	if (id.checked)
 		enable = "true";
@@ -484,7 +484,7 @@ function toggle_commit_emailsCB(response) {
 	var id = document.getElementById('commit_emails');
 	if (!id)
 		return;
-	
+
 	id.checked = (enabled.toLowerCase() == "true");
 }
 
@@ -492,7 +492,7 @@ function toggle_trac_commit_hook() {
 	var id = document.getElementById('trac_commit_hook');
 	if (!id)
 		return;
-	
+
 	var enable = "false";
 	if (id.checked)
 		enable = "true";
@@ -515,7 +515,7 @@ function toggle_trac_commit_hookCB(response) {
 	var id = document.getElementById('trac_commit_hook');
 	if (!id)
 		return;
-	
+
 	id.checked = (enabled.toLowerCase() == "true");
 }
 

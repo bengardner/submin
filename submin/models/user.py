@@ -58,7 +58,7 @@ class User(object):
 		required data. If raw_data is provided, the storage plugin is not used.
 		"""
 		db_user = raw_data
-		
+
 		if not username and not raw_data:
 			raise ValueError('Both username and raw_data are unset')
 
@@ -84,7 +84,7 @@ class User(object):
 		return self._name
 
 	def session_object(self):
-		return {'name': self._name, 'is_admin': self._is_admin, 
+		return {'name': self._name, 'is_admin': self._is_admin,
 				'is_authenticated': self.is_authenticated}
 
 	def check_password(self, password):
@@ -131,7 +131,7 @@ class User(object):
 		came from (string)"""
 		from submin.template.shortcuts import evaluate
 		from submin.email import sendmail
-		
+
 		if key and password:
 			raise ValueError('Ambiguous input: both key and password are set')
 
@@ -149,7 +149,7 @@ class User(object):
 			template = 'email/prepare_reset.txt'
 		else:
 			template = 'email/reset_password.txt'
-		
+
 		message = evaluate(template, templatevars)
 		sendmail(templatevars['from'], templatevars['to'], message)
 

@@ -8,7 +8,7 @@ class SettingsException(Exception):
 
 class Settings(object):
 	"""Loads the settings file lazily.
-	
+
 	This means that on the first time a setting is requested, the settings are
 	read."""
 	def __init__(self):
@@ -64,7 +64,7 @@ class SubminInstallationCheck(object):
 
 		self.check_env()
 		self.ok = self.new_env and not self.old_env
-	
+
 	def check_env(self):
 		if 'SUBMIN_ENV' in self.environ:
 			self.new_env = self.environ['SUBMIN_ENV']

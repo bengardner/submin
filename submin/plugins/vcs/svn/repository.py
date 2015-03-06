@@ -18,7 +18,7 @@ has_path_permissions = True
 def list():
 	repositories = []
 	repository_names = sorted(_repositoriesOnDisk())
-	
+
 	for repos in repository_names:
 		status = "ok"
 		try:
@@ -100,7 +100,7 @@ It is converted to UTF-8 (or other?) somewhere in the dispatcher."""
 
 	def subdirs(self, path):
 		'''Return subdirs (not recursive) of 'path' relative to our reposdir
-		Subdirs are returned as a hash with two entities: 'name' and 
+		Subdirs are returned as a hash with two entities: 'name' and
 		'has_subdirs', which should be self-explanatory.'''
 
 		files = self.get_entries(path)

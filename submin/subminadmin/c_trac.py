@@ -58,7 +58,7 @@ Usage:
 				src = os.path.join(root, filename)
 				dst = os.path.join(str(cgi_bin_dir), filename)
 				self.generate_Xgi_script(src, dst)
-		
+
 		# ... and remove the temporary trac env
 		shutil.rmtree(str(tmp_trac_dir))
 
@@ -135,12 +135,12 @@ Usage:
 					# because it won't read from os.environ
 					if 'def application(environ' in line:
 						f_out.write(WSGI_ENV_LINES)
-	
+
 	def run(self):
 		try:
 			subcmd = getattr(self, 'subcmd_%s' % self.argv[0])
 		except AttributeError:
-			self.sa.execute(['help', 'trac'])	
+			self.sa.execute(['help', 'trac'])
 			return
 
 		subcmd(self.argv[1:])

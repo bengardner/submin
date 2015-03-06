@@ -194,7 +194,7 @@ function reloadNotifications() {
 function reloadNotificationsCB(response) {
 	list = FindResponse(response, "listNotifications");
 	LogResponse(response);
-	
+
 	var notifications = list.xml.getElementsByTagName("notification");
 	notifications = Array.prototype.slice.call(notifications, 0);
 	notifications.sort(xmlSortByName);
@@ -216,10 +216,10 @@ function redrawNotifications(notifications) {
 	if (tbodies.length != 1)
 		return;
 	var tbody = tbodies[0];
-	
+
 	for (var item_idx = tbody.childNodes.length - 1; item_idx > 0; --item_idx)
 		tbody.removeChild(tbody.childNodes[item_idx]);
-	
+
 	for (var i = 0; i < notifications.length; ++i) {
 		var tr = $c("tr");
 		var td_name = $c("td");

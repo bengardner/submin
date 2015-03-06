@@ -107,7 +107,7 @@ It is converted to UTF-8 (or other?) somewhere in the dispatcher."""
 	def subdirs(self, subdir):
 		"""Get a list of subdirs of subdir *subdir* (root is "")
 		Each dir is a dict with at least a property 'name'.
-		
+
 		Note: Git support in submin only returns branches, and only when
 		      requesting subdirs for the root ("")
 		"""

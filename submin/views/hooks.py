@@ -36,7 +36,7 @@ class Hooks(View):
 			tvars['errormsgs'] = [str(e)]
 			tvars['inacl'] = False
 			return XMLTemplateResponse(template, tvars)
-		
+
 		tvars.update(extra_vars)
 		return XMLTemplateResponse(template, tvars)
 

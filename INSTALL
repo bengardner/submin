@@ -26,7 +26,7 @@ also install nginx.
 Installation
 ============
 
-Installing from debian package: 
+Installing from debian package:
 
     see http://supermind.nl/submin/download.html
 
@@ -110,7 +110,7 @@ To generate NGINX config files, run the following command:
 
     submin2-admin /var/lib/submin nginxconf create all
 
-To activate submin2 in nginx, see instructions in the generated nginx config 
+To activate submin2 in nginx, see instructions in the generated nginx config
 file /var/lib/submin/conf/nginx-webui-wsgi.conf
 
 

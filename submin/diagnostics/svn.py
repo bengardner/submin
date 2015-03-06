@@ -40,5 +40,5 @@ def diagnostics():
 
 	results['svn_apache_modules'] = found_mods
 	results['svn_apache_modules_ok'] = False not in found_mods.values()
-	
+
 	return add_labels(results, 'svn_all', warnings, fails)

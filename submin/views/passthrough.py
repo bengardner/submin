@@ -25,7 +25,7 @@ class PassThrough(View):
 				return TeapotResponse("You tried to brew coffee, but I'm a teapot!")
 
 		_, ext = os.path.splitext(fullpath)
-		
+
 		return FileResponse(''.join(file(fullpath).readlines()), self.mimetype(ext))
 
 	def mimetype(self, ext):

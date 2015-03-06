@@ -70,10 +70,10 @@ class Request(object):
 			value = self._incookies[key]
 		except KeyError:
 			return default
-			
+
 		if not value.value:
 			return default
-		
+
 		return value.value
 
 	def is_ajax(self):
@@ -84,23 +84,23 @@ class NoneObject:
 
 class GetVariables(object):
 	"""Provide a consistent way to access the GET variables."""
-	
+
 	def __init__(self, query_string=''):
-		"""This is the method that needs to be overridden in CGIGet and 
+		"""This is the method that needs to be overridden in CGIGet and
 		ModPythonGet. Each uses a different way to parse the query string"""
 		self.variables = [query_string]
-	
+
 	def get(self, item, default=NoneObject):
-		"""Return just one item from the query string (the last), 
+		"""Return just one item from the query string (the last),
 		instead of a list with all the variables"""
 		value = self.variables.get(item, [default])
 		if value == [NoneObject]:
 			raise KeyError(item)
 		return value[-1]
-	
+
 	def __getitem__(self, item):
 		return self.get(item)
-	
+
 	def getall(self, item):
 		return self.variables.get(item)
 
@@ -110,13 +110,13 @@ class CGIGet(GetVariables):
 
 		if query_string:
 			self.variables = cgi.parse_qs(query_string, keep_blank_values=True)
-	
+
 	def __contains__(self, key):
 		return key in self.variables
 
 class CGIFieldStorage(cgi.FieldStorage):
 	"""Provide a consistent way to access the POST variables."""
-	
+
 	def get(self, name, default=None):
 		value = cgi.FieldStorage.getvalue(self, name, default)
 		return uc_url_decode(value)

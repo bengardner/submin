@@ -64,7 +64,7 @@ class PathTests(unittest.TestCase):
 		username = "test"
 		path = p + "/user/show/" + username
 		self.assertEquals(path, "/base/user/show/test")
-		
+
 	def testRawCopy(self):
 		p = Path("/base")
 		p2 = p.copy()

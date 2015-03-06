@@ -46,7 +46,7 @@ class Application:
 			list.append(str(e))
 			self.start_response('500 Not Ok', [])
 			content = ''.join(list)
-		
+
 		yield content
 
 application = Application

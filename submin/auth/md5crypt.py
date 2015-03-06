@@ -66,7 +66,7 @@ def md5crypt(password, salt, magic='$1$'):
     for i in range(2):
         rearranged += itoa64[v & 0x3f]; v >>= 6
 
-    return magic + salt + '$' + rearranged 
+    return magic + salt + '$' + rearranged
 
 # END original file
 

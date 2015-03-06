@@ -23,7 +23,7 @@ class UnknownTemplateError(Exception):
 
 class MissingRequiredArguments(Exception):
 	pass
-	
+
 class DotInLocalVariable(Exception):
 	pass
 
@@ -47,7 +47,7 @@ def set(node, tpl):
 		raise MissingRequiredArguments(
 			"Missing required argument variable at file %s, line %d" %
 			(tpl.filename, node.line))
-	
+
 	if '.' in args:
 		raise DotInLocalVariable(
 			"You cannot use a . when setting local variables (file %s, line %d)" %
@@ -82,25 +82,25 @@ def include(node, tpl):
 	oldcwd = os.getcwd()
 	if os.path.dirname(to_include):
 		os.chdir(os.path.dirname(to_include))
-	
+
 	fp = open(os.path.basename(to_include), 'r')
 	evaluated_string = ''
 	if fp:
 		new_tpl = Template(fp, tpl.variables)
 		evaluated_string = new_tpl.evaluate()
-		
+
 		fp.close()
 	if os.path.dirname(to_include):
 		os.chdir(oldcwd)
 	return evaluated_string
-	
+
 @commands.register('iter')
 def iter(node, tpl):
 	if not node.arguments:
 		raise MissingRequiredArguments(
 			"Missing required argument variable at file %s, line %d" %
 			(tpl.filename, node.line))
-	
+
 	if 'ival' not in tpl.node_variables:
 		tpl.node_variables['ival'] = []
 	if 'iindex' not in tpl.node_variables:
@@ -113,7 +113,7 @@ def iter(node, tpl):
 	tpl.node_variables['iindex'].append(None)
 	tpl.node_variables['iseq'].append(None)
 	tpl.node_variables['ikey'].append(None)
-	
+
 	value = ''
 	if node.arguments.startswith('ival'):
 		if node.arguments == 'ival':
@@ -133,7 +133,7 @@ def iter(node, tpl):
 	if not value:
 		return ''
 	tpl.node_variables['iseq'][-1] = value
-	
+
 	# check if variable is iterable
 	try:
 		import __builtin__ # we need this because this function is also called 'iter'
@@ -241,7 +241,7 @@ def else_tag(node, tpl):
 	prev = node.previous_node
 	while prev and prev.type == 'text':
 		prev = prev.previous_node
-	if not prev or prev.type != 'command' or (prev.command != 'test' and 
+	if not prev or prev.type != 'command' or (prev.command != 'test' and
 			prev.command != 'equals'):
 		raise ElseError(
 			'Previous node to else was not a test-node (file %s, line %d, node %s)' %

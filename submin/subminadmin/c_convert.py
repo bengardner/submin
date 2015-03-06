@@ -177,7 +177,7 @@ Usage:
 		self.write_users(config)
 		self.write_groups(config)
 		self.write_permissions(config)
-		
+
 		# final initialize (for convenience)
 		self.sa.execute(['upgrade', 'hooks', 'no-fix-unixperms'])
 		self.sa.execute(['unixperms', 'fix'])

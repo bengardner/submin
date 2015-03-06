@@ -29,7 +29,7 @@ def export_auth_repository(vcstype):
 	"""Export vcs-specific authorization/authentication information.
 	For example, regenerate authz file for subversion HTTP access."""
 	export_auth(vcstype, "repository")
-	
+
 def export_auth(vcstype, authtype):
 	#try:
 	vcs_plugin = fimport("submin.plugins.vcs.%s.%s" % (vcstype, "export"),

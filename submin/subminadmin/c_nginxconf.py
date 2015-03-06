@@ -38,7 +38,7 @@ Usage:
 			# the only option at the moment
 			self.sa.execute(['help', 'nginxconf'])
 			return
-			
+
 		if len(argv) > 1: # not always true with 'all'
 			self.init_vars['output'] = argv[1]
 		else: #  argv[0] must be 'all'

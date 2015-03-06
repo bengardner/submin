@@ -79,7 +79,7 @@ def valid_password_reset_key(userid, key):
 	# for expiry)
 	storage.execute(cur, """DELETE FROM password_reset
 		WHERE expires <= strftime('%s', 'now')""",)
-	storage.execute(cur, """SELECT count(key) FROM password_reset 
+	storage.execute(cur, """SELECT count(key) FROM password_reset
 		WHERE userid=? AND key=?""",
 		(userid, key))
 	row = cur.fetchone()
@@ -119,7 +119,7 @@ def notification(userid, repository, vcstype):
 	storage.execute(cur, """
 		SELECT 1
 		FROM notifications
-		WHERE userid=? AND repository=? and repositorytype=?""", 
+		WHERE userid=? AND repository=? and repositorytype=?""",
 		(userid, repository, vcstype))
 	row = cur.fetchone()
 	if not row:
@@ -131,7 +131,7 @@ def set_notification(userid, repository, vcstype, enabled, commit=True):
 	if enabled:
 		storage.execute(storage.db.cursor(), """INSERT OR REPLACE INTO notifications
 			(userid, repository, repositorytype)
-			VALUES (?, ?, ?)""", 
+			VALUES (?, ?, ?)""",
 			(userid, repository, vcstype), commit)
 	else:
 		storage.execute(storage.db.cursor(), """DELETE FROM notifications

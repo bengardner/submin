@@ -77,7 +77,7 @@ sql_scripts = [
 	(4, """CREATE TABLE password_reset (
 			userid  integer not null references user(id) primary key, -- valid for this user
 			expires integer not null, -- this entry expires at Unix Time
-			key     text not null -- random secret 
+			key     text not null -- random secret
 		);"""),
 	(3, """INSERT OR IGNORE INTO options VALUES ('git_dir', 'git');"""),
 	(2, """CREATE TABLE ssh_keys

@@ -9,7 +9,7 @@ def list(session_user):
 	for g in all_groups:
 		if session_user.is_admin or session_user.name in g.members():
 			groups.append(g.name)
-	
+
 	return groups
 
 def add(name):
@@ -85,7 +85,7 @@ Username is unique and primary key.
 	Returns a dictionary with all required group data.
 	Returns `None` if no group with this username exists.
 	Fields which need to be implemented (with properties?): name
-	
+
 * remove(groupid)
 	Removes group with id *groupid*. Before a group can be removed, all
 	remove_-functions below must have been called. This happens in the model,

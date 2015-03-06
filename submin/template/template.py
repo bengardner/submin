@@ -18,25 +18,25 @@ class InvalidKeyError(Exception):
 class Node(object):
 	"""Represents a piece of template-text.
 	This is the most basic node and basically does not convey meaning."""
-	
+
 	def __init__(self, type, previous_node, line):
 		self.type = type
 		self.previous_node = previous_node
 		self.line = line
-		
+
 		self.nodes = []
 		self.suppress_newline = False
-	
+
 	def evaluate(self, template=None):
-		"""Even the most basic node has a evaluate function, although it 
+		"""Even the most basic node has a evaluate function, although it
 		returns an empty string.
-		Subclasses of Node must implement their own evaluate function, to 
+		Subclasses of Node must implement their own evaluate function, to
 		ensure a template is evaluated completely"""
 		return ''
-		
+
 	def __str__(self):
 		return '<%s>' % (self.type)
-	
+
 	def __repr__(self):
 		return str(self)
 
@@ -45,7 +45,7 @@ class TextNode(Node):
 	def __init__(self, content, previous_node, line):
 		super(TextNode, self).__init__('text', previous_node, line)
 		self.content = content
-	
+
 	def evaluate(self, template=None):
 		content = self.content
 		pn = self.previous_node
@@ -54,13 +54,13 @@ class TextNode(Node):
 			content = content[1:]
 
 		return unicode(content)
-	
+
 	def __str__(self):
 		return '<text %r>' % self.content
 
 class CommandNode(Node):
 	"""Represents a command.
-	A command can have arguments and/or input-text (both optional). 
+	A command can have arguments and/or input-text (both optional).
 	The syntax is: [command:arguments input-text].
 	The input-text can also contain commands, which are not evaluated unless
 	the corresponding command does so.
@@ -69,7 +69,7 @@ class CommandNode(Node):
 		super(CommandNode, self).__init__('command', previous_node, line)
 		self.command = command
 		self.arguments = ''
-	
+
 	def evaluate(self, template):
 		library = Library()
 		if library.has_command(self.command):
@@ -86,7 +86,7 @@ class CommandNode(Node):
 			# coerce anything else to unicode
 			return unicode(value)
 		raise UnknownCommandError(self.command)
-	
+
 	def __str__(self):
 		if self.arguments:
 			return '<cmd %s(%s)>' % (self.command, self.arguments)
@@ -157,7 +157,7 @@ class Parser(object):
 				self.data = ''
 				self.state = None
 			elif ch == ']':
-				# The end of a command. Now there is some heavy stuff that 
+				# The end of a command. Now there is some heavy stuff that
 				# needs to be done:
 				if self.data and not self.state == COMMAND \
 						and not self.state == ARGUMENTS:
@@ -206,7 +206,7 @@ class Parser(object):
 			if ch == '\n':
 				# Keep track of where we are in the file!
 				self.lines += 1
-	
+
 		if self.data:
 			# If we have some data left at the end of the template, create
 			# a TextNode for it.
@@ -223,16 +223,16 @@ class Template(object):
 			self.filename = 'string'
 		self.variables = variables.copy()
 		self.node_variables = {}
-		
+
 		parser = Parser(self.template_string)
 		self.nodes = parser.parse()
-	
+
 	def __del__(self):
 		self.template_string = None
 		self.variables = None
 		self.node_variables = None
 		self.nodes = None
-	
+
 	def parse_tree(self):
 		"""Returns the parse tree as a string"""
 		return '\n'.join([str(x) for x in self.nodes])
@@ -244,13 +244,13 @@ class Template(object):
 	def variable_value(self, key='', attr=None, variable=None, recursing=False):
 		"""Looks up a key in a variable.
 		If the variable is not provided, it is found in self.variables
-		if key is in the form of key.attribute, the attribute value of key is 
-		returned. 
-		
+		if key is in the form of key.attribute, the attribute value of key is
+		returned.
+
 		It first tries if attribute is a function and returns the return value
 		of that function. Secondly it tries if attribute is a dictionary key
 		and returns it's value. Thirdly it tries if attribute is a data-member
-		and returns it. Next it checks if attribute is a digit, for a 
+		and returns it. Next it checks if attribute is a digit, for a
 		list-lookup.
 		If that that all fails, it returns None.
 		"""
@@ -265,15 +265,15 @@ class Template(object):
 				variable = self.node_variables[key][-1]
 			else:
 				variable = variable.get(key, None)
-		
+
 		# No attribute, just return the variable
 		if not attr:
 			return variable
-		
+
 		if '.' in attr:
 			# recurse until we have it all broken down!
 			return self.variable_value(key=attr, variable=variable, recursing=True)
-		
+
 		# Do all the checks
 		if hasattr(variable, attr):
 			attr = getattr(variable, attr)
@@ -293,5 +293,5 @@ class Template(object):
 				return variable[int(attr)]
 			except KeyError as e:
 				raise TemplateKeyError(e)
-		
+
 		return None

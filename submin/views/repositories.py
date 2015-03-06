@@ -232,12 +232,12 @@ class Repositories(View):
 		change_msg = 'enabled'
 		if not enable:
 			change_msg = 'disabled'
-			
+
 		repos.enableCommitEmails(enable)
 		message = 'Sending of commit emails is %s' % change_msg
 		templatevars = {'command': 'setCommitEmails',
 				'enabled': str(enable), 'message': message}
-		return XMLTemplateResponse('ajax/repositorynotifications.xml', 
+		return XMLTemplateResponse('ajax/repositorynotifications.xml',
 				templatevars)
 
 	@admin_required
@@ -249,7 +249,7 @@ class Repositories(View):
 		message = 'Notifications %s' % change_msg
 		templatevars = {'command': 'commitEmailsEnabled',
 				'enabled': str(enabled), 'message': message}
-		return XMLTemplateResponse('ajax/repositorynotifications.xml', 
+		return XMLTemplateResponse('ajax/repositorynotifications.xml',
 				templatevars)
 
 	@admin_required
@@ -258,12 +258,12 @@ class Repositories(View):
 		change_msg = 'enabled'
 		if not enable:
 			change_msg = 'disabled'
-			
+
 		repos.enableTracCommitHook(enable)
 		message = 'Trac commit hook is %s' % change_msg
 		templatevars = {'command': 'setTracCommitHook',
 				'enabled': str(enable), 'message': message}
-		return XMLTemplateResponse('ajax/repositorynotifications.xml', 
+		return XMLTemplateResponse('ajax/repositorynotifications.xml',
 				templatevars)
 
 	@admin_required
@@ -275,7 +275,7 @@ class Repositories(View):
 		message = 'Notifications %s' % change_msg
 		templatevars = {'command': 'tracCommitHookEnabled',
 				'enabled': str(enabled), 'message': message}
-		return XMLTemplateResponse('ajax/repositorynotifications.xml', 
+		return XMLTemplateResponse('ajax/repositorynotifications.xml',
 				templatevars)
 
 

@@ -10,7 +10,7 @@ class Upgrade(View):
 		localvars = {}
 		localvars['uptodated'] = True
 		localvars['base_url'] = options.url_path('base_url_submin')
-		
+
 		if database_isuptodate():
 			localvars['alreadyuptodate'] = True
 		else:

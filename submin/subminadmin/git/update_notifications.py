@@ -18,7 +18,7 @@ def run(reposname):
 		# and it won't show up if we use Repositor.list() (because it is
 		# revoked). So regenerate for all repositories
 		repositories = [x['name'] for x in repository.Repository.list_all() if x['vcs'] == 'git']
-	
+
 	# get a list of all users + their notifications as tuples: (u, n)
 	# We get the notifications straight away, otherwise we have to
 	# call it user * repositories times, and the u.notifications()

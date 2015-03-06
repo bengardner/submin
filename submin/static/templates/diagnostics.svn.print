@@ -12,7 +12,7 @@ Svn support working correctly: [val diag.svn_all_label]
      submin2-admin [val subminenv] config set vcs_plugins git,svn
 
 ]
-[@test:diag.enabled_svn 
+[@test:diag.enabled_svn
  * SVN dir set in config: [val diag.svn_dir_set_label]
 [@test:!diag.svn_dir_set
    To set the svn_dir, run the following command:

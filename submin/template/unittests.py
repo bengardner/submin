@@ -10,7 +10,7 @@ def evaluate(tpl_string, variables={}):
 	'Helper function for the tests.'
 	tpl = Template(tpl_string, variables)
 	return (tpl, tpl.evaluate())
-	
+
 class LibraryTest(unittest.TestCase):
 	def testUnknownCommand(self):
 		self.assertRaises(UnknownCommandError, evaluate, \

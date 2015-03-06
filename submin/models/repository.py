@@ -111,7 +111,7 @@ class Repository(object):
 		"""Enables sending of commit messages if *enable* is True."""
 		self.repository.enableCommitEmails(enable)
 
-		trigger_hook('repository-notifications-update', 
+		trigger_hook('repository-notifications-update',
 				repositoryname=self.name, vcs_type=self.vcs_type)
 
 	def enableTracCommitHook(self, enable):
@@ -172,8 +172,8 @@ as some secondary tasks.
 	Enables sending of commit messages if *enable* is True.
 
 * repo.commitEmailsEnabled()
-	Returns True if sendinf of commit messages is enabled.
+	Returns True if sending of commit messages is enabled.
 
 * repo.tracCommitHookEnabled()
-	Returns True if sendinf of commit messages is enabled.
+	Returns True if sending of commit messages is enabled.
 """

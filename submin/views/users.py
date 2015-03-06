@@ -133,10 +133,10 @@ class Users(View):
 			return self.removeUser(req, username)
 
 		u = user.User(username)
-		
+
 		if 'fullname' in req.post and req.post.get('fullname').strip():
 			return self.setFullName(req, u)
-		
+
 		if 'email' in req.post and req.post.get('email').strip():
 			return self.setEmail(req, u)
 
@@ -163,13 +163,13 @@ class Users(View):
 
 		if 'removeSSHKey' in req.post:
 			return self.removeSSHKey(req, u)
-		
+
 		if 'saveNotifications' in req.post:
 			return self.saveNotifications(req, u)
 
 		if 'listSSHKeys' in req.post:
 			return self.listSSHKeys(req, u)
-		
+
 		if 'setIsAdmin' in req.post:
 			return self.setIsAdmin(req, u)
 
@@ -187,7 +187,7 @@ class Users(View):
 		except Exception as e:
 			return XMLStatusResponse('email', False,
 				'Could not change email of user %s: %s' % (u.name, str(e)))
-  
+
 	def setFullName(self, req, u):
 		try:
 			u.fullname = req.post.get('fullname')
@@ -248,7 +248,7 @@ class Users(View):
 			for groupname in groupnames:
 				if groupname not in member_of_names:
 					nonmember_of.append(groupname)
-			
+
 			return XMLTemplateResponse("ajax/usermemberof.xml",
 					{"memberof": member_of_names,
 						"nonmemberof": nonmember_of, "user": u.name})
@@ -319,7 +319,7 @@ class Users(View):
 
 	def saveNotifications(self, req, u):
 		session_user = req.session['user']
-		
+
 		notifications_str = req.post.get('saveNotifications').split('|')
 		notifications = []
 		for n_str in notifications_str:
@@ -387,5 +387,5 @@ class Users(View):
 				'Could not change admin status for user %s: %s' % (u.name, str(e)))
 
 		newstatus = {'false':'revoked', 'true':'granted'}[is_admin]
-		return XMLStatusResponse('setIsAdmin', True, 
+		return XMLStatusResponse('setIsAdmin', True,
 			'Admin rights for user %s %s' % (u.name, newstatus))

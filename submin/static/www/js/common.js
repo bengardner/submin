@@ -102,7 +102,7 @@ function $$(elem, tag, classname) {
 		if (elements[i].className.toLowerCase().split(/\s+/).member(classname.toLowerCase()))
 			classElements[classElements.length] = elements[i];
 	}
-	
+
 	return classElements;
 }
 
@@ -161,13 +161,13 @@ function hasClassName(element, oClassName) {
 
 
 // $c takes the name of the element and a list of properties.
-// if a property is an object itself it should add all the members of that 
+// if a property is an object itself it should add all the members of that
 // object to the property (i.e. style.display)
 function $c(elemName, properties) {
 	var elem = document.createElement(elemName);
 	if (typeof properties == 'undefined' || !properties)
 		return elem;
-	
+
 	for (var property in properties) {
 		if (typeof properties[property] == typeof {}) {
 			for (var member in properties[property]) {
@@ -180,7 +180,7 @@ function $c(elemName, properties) {
 			elem[setProperty] = properties[property];
 		}
 	}
-	
+
 	return elem;
 }
 
@@ -346,7 +346,7 @@ submin = new Submin_config();
 function newResponseCommand(command_xml) {
 	var command = {};
 	command['name'] = command_xml.getAttribute('name');
-	
+
 	var success = command_xml.getAttribute('success');
 	if (success.toLowerCase() == 'true') {
 		command['success'] = true;

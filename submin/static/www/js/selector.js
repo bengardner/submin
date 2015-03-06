@@ -23,7 +23,7 @@
  * The init/add/remove calbacks must call the reInit() of the Selector
  * object, because these callbacks can be asynchronous and the Selector
  * object does not know when to refresh.
- * 
+ *
  * WARNING WARNING WARNING WARNING WARNING WARNING WARNING WARNING
  */
 function Selector(options) {

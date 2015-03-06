@@ -69,7 +69,7 @@ any configuration.
 If you used the "python setup.py" method, you should find the files by yourself
 and delete them. They should be located in python's site-packages and some
 binaries in /usr/bin/ (look for submin*). Alternatively, you could try to
-reinstall with the --record to get a list of files to remove, as suggested in: 
+reinstall with the --record to get a list of files to remove, as suggested in:
 
 http://stackoverflow.com/questions/1550226/python-setup-py-uninstall
 http://askubuntu.com/questions/38692/how-does-one-remove-applications-installed-through-python-setup-py-install

@@ -78,7 +78,7 @@ def diagnostics():
 		results['trac_htpasswd_file'] = ""
 
 	results['trac_base_url'] = options.url_path('base_url_trac')
-	
+
 	return add_labels(results, 'trac_all', warnings, fails)
 
 def have_trac_sync_access():

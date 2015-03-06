@@ -44,7 +44,7 @@ def export_notifications(**kwargs):
 	repository, _and_ if the user has a non-empty email-address. Multiple
 	paths are grouped together by a regexp group (multiple|paths)"""
 	bindir = options.static_path("hooks") + 'svn'
-	
+
 	# get a list of all users
 	from submin.models import user
 	users = [user.User(name) for name in user.list(user.FakeAdminUser())]
