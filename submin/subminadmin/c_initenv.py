@@ -253,5 +253,6 @@ default might work in some places, but not all.
 
 			self.set_init_var(key, val)
 
+		self.init_vars['commit_email_from'] = self.init_vars['smtp_from']
 		self.create_env()
 		return True
