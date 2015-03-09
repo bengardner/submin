@@ -1,9 +1,8 @@
 #sidebar {
 	background-color: #dadfe6;
-	width: 161px;
+	width: 20em;
 	padding: 0px;
 	margin: 0px;
-	float: left;
 	color: #000;
 	overflow: auto;
 	white-space: nowrap;
@@ -108,7 +107,7 @@ ul#addicons {
 	height: 30px;
 	margin: 0;
 	padding: 0;
-	width: 161px; /* not 162px, let the border show! */
+	width: 20em;
 	border-top: 1px solid #515151;
 	border-right: 1px solid #515151;
 }

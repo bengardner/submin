@@ -7,13 +7,10 @@ body {
 }
 
 #content {
-	float: left;
-	position: fixed;
-	left: 162px;
 	right: 0px;
 	top: 0px;
 	bottom: 0px;
-	margin-left: 1em;
+	margin-left: 21em;
 	padding-right: 1em;
 	overflow: auto;
 }

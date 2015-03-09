@@ -36,33 +36,6 @@ window.onload = function() {
 	}
 }
 
-var repos_old_resize = window.onresize;
-window.onresize = function() {
-	if (repos_old_resize) repos_old_resize();
-	resize_content_div();
-}
-
-
-function resize_content_div()
-{
-	var content = document.getElementById('content');
-	if (!content)
-		return;
-
-	var width = WindowWidth() - 200;
-	content.style.width = width + 'px';
-
-	var repostree = document.getElementById('repostree');
-	var permissions_editor = document.getElementById('permissions-editor');
-
-	width = width / 2 - 24;
-
-	if (repostree)
-		repostree.style.width = width + 'px';
-	if (permissions_editor)
-		permissions_editor.style.width = width + 'px';
-}
-
 function repostree_getnode(me)
 {
 	var root = collapsables_getRoot(repository_tree.prefix, me);
