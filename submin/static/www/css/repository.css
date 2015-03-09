@@ -29,7 +29,7 @@ i.repostree-folder {
 	cursor: pointer;
 }
 
-#repostree li span.has-perms {
+span.has-perms {
 	font-style: italic;
 	color: blue;
 }
