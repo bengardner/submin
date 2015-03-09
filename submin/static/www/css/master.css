@@ -158,6 +158,9 @@ div.c_icon.empty {
 	background-position: 0px -49px;
 }
 i.remover {
+	color: black;
+}
+i.remover:hover {
 	color: red;
 }
 

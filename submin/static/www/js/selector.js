@@ -35,7 +35,7 @@ function Selector(options) {
 /* Creates the add/remove button for each item */
 Selector.prototype.makeButton = function(className) {
 	var minus = $c("i", {"className": className});
-	addClassName(minus, "fa fa-times-circle fa-lg");
+	addClassName(minus, "fa fa-times");
 	addClassName(minus, "minus");
 	return minus;
 }
