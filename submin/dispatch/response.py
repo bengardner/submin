@@ -39,12 +39,13 @@ class Redirect(Response):
 		self.status_code = 302
 		if '://' not in url:
 			vhost = options.value("http_vhost")
-			if '://' not in vhost:
-				vhost = 'http://' + vhost
+			if vhost:
+				if '://' not in vhost:
+					vhost = 'http://' + vhost
 
-			# to prevent accidental double slashes to be interpreted as netloc,
-			# we strip all leading slashes from the url
-			url = urlparse.urljoin(vhost, url.lstrip('/'))
+				# to prevent accidental double slashes to be interpreted as netloc,
+				# we strip all leading slashes from the url
+				url = urlparse.urljoin(vhost, url.lstrip('/'))
 
 		self.headers.update({'Location': url.encode('utf-8')})
 
